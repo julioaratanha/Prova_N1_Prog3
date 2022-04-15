@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.InicialController">
+   <children>
+      <Pane prefHeight="560.0" prefWidth="787.0">
+         <children>
+            <Button fx:id="BtnUsuarios" layoutX="123.0" layoutY="236.0" mnemonicParsing="false" onAction="#BtnUsuarios_Action" text="Gerenciar Usuários" />
+            <Button fx:id="BtnLivros" layoutX="123.0" layoutY="291.0" mnemonicParsing="false" onAction="#BtnLivros_Action" prefHeight="25.0" prefWidth="142.0" text="Gerenciar Livros" />
+            <Label layoutX="134.0" layoutY="177.0" text="Menu Bibliotecária" />
+            <Button fx:id="BtnAutores" layoutX="125.0" layoutY="343.0" mnemonicParsing="false" onAction="#BtnAutores_Action" text="Gerenciar Autores" />
+            <Button fx:id="BtnEmprestimos" layoutX="107.0" layoutY="404.0" mnemonicParsing="false" onAction="#BtnEmprestimos_Action" text="Gerenciar Empréstimos" />
+         </children>
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </Pane>
+      <Pane prefHeight="560.0" prefWidth="797.0">
+         <children>
+            <Label layoutX="152.0" layoutY="177.0" text="Menu Usuário" />
+            <Button fx:id="BtnConsultaReserva" layoutX="93.0" layoutY="238.0" mnemonicParsing="false" onAction="#BtnConsultaReserva_Action" text="Consulta e Reserva de Livros" />
+         </children></Pane>
+   </children>
+</HBox>

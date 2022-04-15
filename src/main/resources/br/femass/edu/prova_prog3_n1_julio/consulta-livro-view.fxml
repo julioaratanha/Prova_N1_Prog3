@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.GerenciaLivroController">
+   <children>
+      <Pane minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <ListView fx:id="LstLivros" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstLivros_KeyPressed" onMouseClicked="#LstLivros_MouseClicked" prefHeight="440.0" prefWidth="362.0" />
+            <Button fx:id="BtnRetorna" layoutX="24.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna a tela principal" />
+            <Button fx:id="BtnGerenciaCopias" layoutX="237.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnGerenciaCopias_Action" text="Gerenciar Copias" visible="false" />
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="10.0" minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <TextField fx:id="TxtCodigo" disable="true" editable="false" layoutX="196.0" layoutY="32.0" />
+            <TextField fx:id="TxtTitulo" disable="true" editable="false" layoutX="196.0" layoutY="86.0" />
+            <TextField fx:id="TxtNomeAutor" disable="true" editable="false" layoutX="196.0" layoutY="138.0" />
+            <TextField fx:id="TxtSobrenomeAutor" disable="true" editable="false" layoutX="196.0" layoutY="192.0" />
+            <TextField fx:id="TxtGenero" disable="true" editable="false" layoutX="196.0" layoutY="243.0" />
+            <TextField fx:id="TxtAno" disable="true" editable="false" layoutX="196.0" layoutY="294.0" />
+            <TextField fx:id="TxtEdicao" disable="true" editable="false" layoutX="196.0" layoutY="342.0" />
+            <Label layoutX="94.0" layoutY="37.0" text="Código" />
+            <Label layoutX="99.0" layoutY="91.0" text="Título" />
+            <Label layoutX="68.0" layoutY="143.0" text="Autor -&gt; Nome" />
+            <Label layoutX="50.0" layoutY="197.0" text="Autor -&gt; Sobrenome" />
+            <Label layoutX="93.0" layoutY="248.0" text="Gênero" />
+            <Label layoutX="100.0" layoutY="299.0" text="Ano" />
+            <Label layoutX="91.0" layoutY="347.0" text="Edição" />
+            <TextField fx:id="TxtCopiasDisponiveis" disable="true" editable="false" layoutX="308.0" layoutY="392.0" prefHeight="25.0" prefWidth="58.0" />
+            <Label layoutX="160.0" layoutY="397.0" text="Cópias disponiveis" />
+            <TextField fx:id="TxtCopDisp" layoutX="308.0" layoutY="432.0" prefHeight="25.0" prefWidth="58.0" visible="false" />
+            <Label fx:id="LblCopDisp" layoutX="56.0" layoutY="437.0" text="Cópias disponíveis para Empréstimo" visible="false" />
+            <Button fx:id="BtnReserva" layoutX="69.0" layoutY="495.0" mnemonicParsing="false" onAction="#BtnReserva_Action" text="Reservar Livro" />
+            <Button fx:id="BtnCancelaReserva" layoutX="226.0" layoutY="495.0" mnemonicParsing="false" onAction="#BtnCancelaReserva_Action" text="Cancelar Reserva" />
+         </children></Pane>
+   </children>
+</HBox>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.GerenciaUsuarioController">
+   <children>
+      <Pane minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <ListView fx:id="LstUsuarios" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstLivros_KeyPressed" onMouseClicked="#LstLivros_MouseClicked" prefHeight="440.0" prefWidth="362.0" />
+            <Button fx:id="BtnIncluirAluno" layoutX="24.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnIncluirAluno_Action" text="Incluir Aluno" />
+            <Button fx:id="BtnExcluir" layoutX="314.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnExcluir_Action" text="Excluir" />
+            <Button fx:id="BtnRetorna" layoutX="24.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna à tela principal" />
+            <Button fx:id="BtnIncluirProfessor" layoutX="153.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnIncluirProfessor_Action" text="Incluir Professor" />
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="10.0" minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <TextField fx:id="TxtCodigo" disable="true" editable="false" layoutX="196.0" layoutY="14.0" />
+            <TextField fx:id="TxtNome" disable="true" editable="false" layoutX="196.0" layoutY="51.0" />
+            <TextField fx:id="TxtLogradouro" disable="true" editable="false" layoutX="196.0" layoutY="89.0" />
+            <TextField fx:id="TxtNumero" disable="true" editable="false" layoutX="196.0" layoutY="129.0" />
+            <TextField fx:id="TxtComplemento" disable="true" editable="false" layoutX="196.0" layoutY="173.0" />
+            <TextField fx:id="TxtBairro" disable="true" editable="false" layoutX="196.0" layoutY="217.0" />
+            <TextField fx:id="TxtCidade" disable="true" editable="false" layoutX="196.0" layoutY="260.0" />
+            <Label layoutX="95.0" layoutY="19.0" text="Código" />
+            <Label layoutX="100.0" layoutY="56.0" text="Nome" />
+            <Label layoutX="80.0" layoutY="94.0" text="Logradouro" />
+            <Label layoutX="94.0" layoutY="134.0" text="Número" />
+            <Label layoutX="74.0" layoutY="178.0" text="Complemento" />
+            <Label layoutX="100.0" layoutY="230.0" text="Bairro" />
+            <Label layoutX="97.0" layoutY="265.0" text="Cidade" />
+            <Button fx:id="BtnGravar" disable="true" layoutX="303.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnGravar_Action" text="Gravar" />
+            <Button fx:id="BtnCancelar" disable="true" layoutX="196.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnCancelar_Action" text="Cancelar" />
+            <TextField fx:id="TxtUf" disable="true" editable="false" layoutX="196.0" layoutY="304.0" />
+            <Label layoutX="112.0" layoutY="309.0" text="Uf" />
+            <TextField fx:id="TxtTelDdd" disable="true" editable="false" layoutX="196.0" layoutY="341.0" prefHeight="25.0" prefWidth="62.0" />
+            <TextField fx:id="TxtTelNum" disable="true" editable="false" layoutX="196.0" layoutY="381.0" />
+            <Label layoutX="64.0" layoutY="346.0" text="Telefone -&gt; DDD" />
+            <Label layoutX="53.0" layoutY="386.0" text="Telefone -&gt; Número" />
+            <ComboBox fx:id="CboCurso" disable="true" layoutX="206.0" layoutY="426.0" prefWidth="150.0" visible="false" />
+            <Label layoutX="102.0" layoutY="431.0" text="Curso" visible="false" />
+         </children></Pane>
+   </children>
+</HBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.GerenciaAutorController">
+   <children>
+      <Pane minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <ListView fx:id="LstAutores" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstLivros_KeyPressed" onMouseClicked="#LstLivros_MouseClicked" prefHeight="190.0" prefWidth="362.0" />
+            <Button fx:id="BtnIncluir" layoutX="24.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnIncluir_Action" text="Incluir" />
+            <Button fx:id="BtnExcluir" layoutX="104.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnExcluir_Action" text="Excluir" />
+            <Button fx:id="BtnRetorna" layoutX="24.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna a tela principal" />
+            <Button fx:id="BtnGerenciaCopias" layoutX="237.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnGerenciaCopias_Action" text="Gerenciar Copias" visible="false" />
+            <TextField fx:id="TxtNome" disable="true" editable="false" layoutX="118.0" layoutY="268.0" prefHeight="25.0" prefWidth="253.0" />
+            <TextField fx:id="TxtSobrenome" disable="true" editable="false" layoutX="118.0" layoutY="298.0" prefHeight="25.0" prefWidth="253.0" />
+            <Label layoutX="169.0" layoutY="216.0" text="Autores" />
+            <Label layoutX="53.0" layoutY="273.0" text="Nome" />
+            <Label layoutX="33.0" layoutY="303.0" text="Sobrenome" />
+            <Button fx:id="BtnCancelar" disable="true" layoutX="277.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnCancelar_Action" text="Cancelar" />
+            <Button fx:id="BtnGravar" disable="true" layoutX="286.0" layoutY="523.0" mnemonicParsing="false" onAction="#BtnGravar_Action" text="Gravar" />
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="10.0" minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
+         <children>
+            <TextField fx:id="TxtCodigo" disable="true" editable="false" layoutX="196.0" layoutY="243.0" />
+            <TextField fx:id="TxtTitulo" disable="true" editable="false" layoutX="196.0" layoutY="280.0" />
+            <TextField fx:id="TxtEdicao" disable="true" editable="false" layoutX="196.0" layoutY="387.0" />
+            <Label layoutX="134.0" layoutY="248.0" text="Código" />
+            <Label layoutX="138.0" layoutY="285.0" text="Título" />
+            <Label layoutX="126.0" layoutY="322.0" text="Gênero" />
+            <Label layoutX="137.0" layoutY="356.0" text="Ano" />
+            <Label layoutX="140.0" layoutY="392.0" text="Edição" />
+            <TextField fx:id="TxtNumCopias" disable="true" editable="false" layoutX="308.0" layoutY="425.0" prefHeight="25.0" prefWidth="58.0" />
+            <Label layoutX="181.0" layoutY="430.0" text="Número de copias" />
+            <TextField fx:id="TxtCopDisp" layoutX="308.0" layoutY="432.0" prefHeight="25.0" prefWidth="58.0" visible="false" />
+            <Label fx:id="LblCopDisp" layoutX="56.0" layoutY="437.0" text="Cópias disponíveis para Empréstimo" visible="false" />
+            <ListView fx:id="LstLivros" layoutX="17.0" layoutY="14.0" prefHeight="190.0" prefWidth="362.0" />
+            <Label layoutX="180.0" layoutY="217.0" text="Livros" />
+            <TextField fx:id="TxtAno" disable="true" editable="false" layoutX="196.0" layoutY="354.0" />
+            <TextField fx:id="TxtGenero" disable="true" editable="false" layoutX="196.0" layoutY="317.0" />
+         </children></Pane>
+   </children>
+</HBox>
