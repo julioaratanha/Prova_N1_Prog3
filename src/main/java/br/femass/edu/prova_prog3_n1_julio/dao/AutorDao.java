@@ -48,7 +48,7 @@ public class AutorDao implements Dao<Autor> {
     @Override
     public void gravar(Autor autor) throws Exception {
         //listar();
-        if (verificaSeAutorExiste(autor)) autores.add(autor);
+        autores.add(autor);
         //persistir();
     }
 

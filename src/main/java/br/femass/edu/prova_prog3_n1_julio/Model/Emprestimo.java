@@ -10,31 +10,32 @@ public class Emprestimo {
 
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucaoPrevista;
+    private LocalDate dataDevolucaoEfetiva;
 
     private Usuario usuario;
     private Livro livro;
-    public Emprestimo(Usuario usuario) {
+    private Boolean ativo = false;
+
+    public Emprestimo(Usuario usuario, Livro livro) {
          this.usuario=usuario;
-         LocalDateTime agora = LocalDateTime.now();
-         this.dataEmprestimo= agora.toLocalDate();
-         LocalDateTime devolucao = agora.plusDays(this.usuario.getPrazoDevolucao());
-         this.dataDevolucaoPrevista=devolucao.toLocalDate();
+         //LocalDate agora = LocalDateTime.now().toLocalDate();
+         //this.dataEmprestimo= agora.toLocalDate();
+         //LocalDate devolucao = agora.plusDays(this.usuario.getPrazoDevolucao());
+         //this.dataDevolucaoPrevista=devolucao;
+         this.livro=livro;
     }
 
     public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+    public void setDataEmprestimoEDataDevolucaoPrevista(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucaoPrevista = dataEmprestimo.plusDays(this.usuario.getPrazoDevolucao());
     }
 
     public LocalDate getDataDevolucaoPrevista() {
         return dataDevolucaoPrevista;
-    }
-
-    public void setDataDevolucaoPrevista(LocalDate dataDevolucaoPrevista) {
-        this.dataDevolucaoPrevista = dataDevolucaoPrevista;
     }
 
     public Livro getLivro() {
@@ -51,5 +52,28 @@ public class Emprestimo {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public LocalDate getDataDevolucaoEfetiva() {
+        return dataDevolucaoEfetiva;
+    }
+
+    public void setDataDevolucaoEfetiva(LocalDate dataDevolucaoEfetiva) {
+        this.dataDevolucaoEfetiva = dataDevolucaoEfetiva;
+        setAtivo(false);
+    }
+
+    @Override
+    public String toString() {
+        if (this.ativo) return this.livro.getTitulo()+" - Data de Devolução prevista: "+this.dataDevolucaoPrevista;
+        return " Reservado: "+this.livro.getTitulo()+" - Aguardando confirmação";
     }
 }

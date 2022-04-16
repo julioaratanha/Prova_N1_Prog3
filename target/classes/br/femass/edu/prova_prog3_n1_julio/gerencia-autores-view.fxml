@@ -13,11 +13,10 @@
    <children>
       <Pane minHeight="537.0" minWidth="392.0" prefHeight="537.0" prefWidth="392.0">
          <children>
-            <ListView fx:id="LstAutores" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstLivros_KeyPressed" onMouseClicked="#LstLivros_MouseClicked" prefHeight="190.0" prefWidth="362.0" />
+            <ListView fx:id="LstAutores" layoutX="14.0" layoutY="14.0" onKeyPressed="#LstAutores_KeyPressed" onMouseClicked="#LstAutores_MouseClicked" prefHeight="190.0" prefWidth="362.0" />
             <Button fx:id="BtnIncluir" layoutX="24.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnIncluir_Action" text="Incluir" />
             <Button fx:id="BtnExcluir" layoutX="104.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnExcluir_Action" text="Excluir" />
             <Button fx:id="BtnRetorna" layoutX="24.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna a tela principal" />
-            <Button fx:id="BtnGerenciaCopias" layoutX="237.0" layoutY="474.0" mnemonicParsing="false" onAction="#BtnGerenciaCopias_Action" text="Gerenciar Copias" visible="false" />
             <TextField fx:id="TxtNome" disable="true" editable="false" layoutX="118.0" layoutY="268.0" prefHeight="25.0" prefWidth="253.0" />
             <TextField fx:id="TxtSobrenome" disable="true" editable="false" layoutX="118.0" layoutY="298.0" prefHeight="25.0" prefWidth="253.0" />
             <Label layoutX="169.0" layoutY="216.0" text="Autores" />
@@ -41,7 +40,7 @@
             <Label layoutX="181.0" layoutY="430.0" text="Número de copias" />
             <TextField fx:id="TxtCopDisp" layoutX="308.0" layoutY="432.0" prefHeight="25.0" prefWidth="58.0" visible="false" />
             <Label fx:id="LblCopDisp" layoutX="56.0" layoutY="437.0" text="Cópias disponíveis para Empréstimo" visible="false" />
-            <ListView fx:id="LstLivros" layoutX="17.0" layoutY="14.0" prefHeight="190.0" prefWidth="362.0" />
+            <ListView fx:id="LstLivros" layoutX="17.0" layoutY="14.0" onKeyPressed="#LstLivros_KeyPressed" onMouseClicked="#LstLivros_MouseClicked" prefHeight="190.0" prefWidth="362.0" />
             <Label layoutX="180.0" layoutY="217.0" text="Livros" />
             <TextField fx:id="TxtAno" disable="true" editable="false" layoutX="196.0" layoutY="354.0" />
             <TextField fx:id="TxtGenero" disable="true" editable="false" layoutX="196.0" layoutY="317.0" />

@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmprestimoTest {
 
     Usuario usuario = new Usuario();
-
-    Emprestimo emprestimo = new Emprestimo(usuario);
+    Livro livro = new Livro();
+    Emprestimo emprestimo = new Emprestimo(usuario, livro);
 
     @Test
     void getDataEmprestimo() {
@@ -32,9 +32,9 @@ class EmprestimoTest {
     }
 
     @Test
-    void setDataEmprestimo() {
+    void setDataEmprestimoEDevolucaoPrevista() {
         LocalDate esperado = LocalDate.of(2022, 05, 20);
-        emprestimo.setDataEmprestimo(esperado);
+        emprestimo.setDataEmprestimoEDataDevolucaoPrevista(esperado);
         Integer mesEsperado = esperado.getMonthValue();
         Integer diaEsperado = esperado.getDayOfMonth();
         Integer anoEsperado = esperado.getYear();
@@ -52,21 +52,6 @@ class EmprestimoTest {
         LocalDate hoje = agora.toLocalDate();
         Integer prazo=emprestimo.getUsuario().getPrazoDevolucao();
         LocalDate esperado = hoje.plusDays(prazo);
-        Integer mesEsperado = esperado.getMonthValue();
-        Integer diaEsperado = esperado.getDayOfMonth();
-        Integer anoEsperado = esperado.getYear();
-        Integer mesObservado = emprestimo.getDataDevolucaoPrevista().getMonthValue();
-        Integer diaObservado = emprestimo.getDataDevolucaoPrevista().getDayOfMonth();
-        Integer anoObservado = emprestimo.getDataDevolucaoPrevista().getYear();
-        Assertions.assertEquals(mesEsperado, mesObservado);
-        Assertions.assertEquals(diaEsperado, diaObservado);
-        Assertions.assertEquals(anoEsperado, anoObservado);
-    }
-
-    @Test
-    void setDataDevolucaoPrevista() {
-        LocalDate esperado = LocalDate.of(2022, 05, 20);
-        emprestimo.setDataDevolucaoPrevista(esperado);
         Integer mesEsperado = esperado.getMonthValue();
         Integer diaEsperado = esperado.getDayOfMonth();
         Integer anoEsperado = esperado.getYear();

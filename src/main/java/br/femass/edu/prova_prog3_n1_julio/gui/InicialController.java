@@ -50,6 +50,6 @@ public class InicialController {
 
     @FXML
     private void BtnConsultaReserva_Action(ActionEvent evento){
-        BibliotecaApplication.irTelaConsultaReservaLivros();
+        BibliotecaApplication.irTelaIdentificaUsuario();
     }
 }

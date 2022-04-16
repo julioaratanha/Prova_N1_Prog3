@@ -21,11 +21,9 @@ import static br.femass.edu.prova_prog3_n1_julio.BibliotecaApplication.livroDao;
 
 public class GerenciaAutorController implements Initializable {
 
-    private Autor autorSelecionado;
-
     //List View
     @FXML
-    ListView<Autor> LstAutores;
+    private ListView<Autor> LstAutores;
 
     @FXML
     private ListView<Livro> LstLivros;
@@ -107,9 +105,15 @@ public class GerenciaAutorController implements Initializable {
         Autor autor = LstAutores.getSelectionModel().getSelectedItem();
         if (autor==null) return;
         try {
-            for (Livro livro : autor.getLivros()){
-                livroDao.excluir(livro);
+            Set<Livro> livros = new HashSet<>();
+            livros.addAll(livroDao.listar());
+            for (Livro livro : livros){
+                if (livro.getAutor().equals(autor)) livroDao.excluir(livro);
             }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
             autorDao.excluir(autor);
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,7 +186,20 @@ public class GerenciaAutorController implements Initializable {
         Autor autor = LstAutores.getSelectionModel().getSelectedItem();
         TxtNome.setText(autor.getNome());
         TxtSobrenome.setText(autor.getSobrenome());
+
+        Set<Livro> livros = new HashSet<>();
+        try {
+            livros.addAll(livroDao.listar());
+            for (Livro livro : livroDao.listar()){
+                if (!livro.getAutor().equals(autor)) livros.remove(livro);
+            }
+        } catch (Exception e){
+            livros = new HashSet<>();
+        }
+        ObservableList<Livro> livrosOb = FXCollections.observableArrayList(livros);
+        LstLivros.setItems(livrosOb);
     }
+
 
     private void exibirLivro(){
         Livro livro = LstLivros.getSelectionModel().getSelectedItem();
@@ -201,11 +218,11 @@ public class GerenciaAutorController implements Initializable {
     }
 
     private void atualizarLista() {
-        Set<Autor> autores = null;
+        Set<Autor> autores = new HashSet<>();;
         try {
             autores = autorDao.listar();
         } catch (Exception e){
-            autores = new HashSet<>();
+            e.printStackTrace();
         }
         ObservableList<Autor> autoresOb = FXCollections.observableArrayList(autores);
         LstAutores.setItems(autoresOb);

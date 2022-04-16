@@ -9,33 +9,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 
-<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.GerenciaUsuarioController">
+<HBox minHeight="560.0" minWidth="786.0" prefHeight="560.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.GerenciaEmprestimosController">
    <children>
       <Pane minHeight="537.0" minWidth="392.0" prefHeight="560.0" prefWidth="787.0">
          <children>
-            <ListView fx:id="LstReservas" layoutX="30.0" layoutY="26.0" prefHeight="156.0" prefWidth="573.0" />
+            <ListView fx:id="LstReservas" layoutX="30.0" layoutY="26.0" onKeyPressed="#LstReservas_KeyPressed" onMouseClicked="#LstReservas_MouseClicked" prefHeight="156.0" prefWidth="362.0" />
             <Button fx:id="BtnRetorna" layoutX="24.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna à tela principal" />
-            <Button fx:id="BtnIncluirProfessor" layoutX="627.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnIncluirProfessor_Action" text="Efetuar Devolucao" />
-            <Button fx:id="BtnIncluirAluno" layoutX="438.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnIncluirAluno_Action" text="Efetuar emprestimo" />
-            <Label layoutX="30.0" layoutY="386.0" text="Numero de Emprestimos Ativos" />
-            <TextField layoutX="256.0" layoutY="381.0" prefHeight="25.0" prefWidth="37.0" />
-            <ListView fx:id="LstEmprestimosAtivos" layoutX="30.0" layoutY="218.0" prefHeight="156.0" prefWidth="362.0" />
+            <Button fx:id="BtnEfetDevol" layoutX="627.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnEfetDevol_Action" text="Efetuar Devolucao" />
+            <Button fx:id="BtnEfetEmpres" layoutX="438.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnEfetEmpres_Action" text="Efetuar emprestimo" />
+            <Label layoutX="446.0" layoutY="443.0" text="Número de Empréstimos Ativos do Usuário" />
+            <TextField fx:id="TxtEmpAtivos" layoutX="735.0" layoutY="438.0" prefHeight="25.0" prefWidth="37.0" />
+            <ListView fx:id="LstEmprestimosAtivos" layoutX="30.0" layoutY="218.0" onKeyPressed="#LstEmprestimosAtivos_KeyPressed" onMouseClicked="#LstEmprestimosAtivos_MouseClicked" prefHeight="156.0" prefWidth="362.0" />
             <Label layoutX="154.0" layoutY="195.0" text="Empréstimos Ativos" />
-            <Label layoutX="635.0" layoutY="26.0" text="Cópias Disponiveis" />
-            <TextField fx:id="TxtCopiasDisponiveis" layoutX="678.0" layoutY="49.0" prefHeight="25.0" prefWidth="37.0" />
+            <TextField fx:id="TxtCopiasDisponiveis" layoutX="735.0" layoutY="475.0" prefHeight="25.0" prefWidth="37.0" />
             <Label layoutX="30.0" layoutY="423.0" text="Data Empréstimo" />
             <Label layoutX="29.0" layoutY="456.0" text="Data Prevista Devolução" />
-            <TextField layoutX="202.0" layoutY="450.0" prefHeight="25.0" prefWidth="91.0" />
-            <TextField layoutX="202.0" layoutY="418.0" prefHeight="25.0" prefWidth="91.0" />
-            <Label layoutX="334.0" layoutY="7.0" text="Reservas" />
-            <ListView layoutX="435.0" layoutY="218.0" prefHeight="156.0" prefWidth="321.0" />
-            <Label layoutX="529.0" layoutY="195.0" text="Histórico de Empréstimos" />
-            <TextField layoutX="664.0" layoutY="381.0" prefHeight="25.0" prefWidth="91.0" />
-            <Label layoutX="512.0" layoutY="386.0" text="Data Emprestimo" />
-            <TextField layoutX="664.0" layoutY="418.0" prefHeight="25.0" prefWidth="91.0" />
-            <Label layoutX="489.0" layoutY="423.0" text="Data Prevista Devolucao" />
-            <TextField layoutX="664.0" layoutY="451.0" prefHeight="25.0" prefWidth="91.0" />
-            <Label layoutX="492.0" layoutY="456.0" text="Data Efetiva Devolucao" />
+            <TextField fx:id="TxtDataEmpAtivo" layoutX="202.0" layoutY="418.0" prefHeight="25.0" prefWidth="91.0" />
+            <TextField fx:id="TxtDataPrevDevolAtivo" layoutX="202.0" layoutY="450.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="189.0" layoutY="7.0" text="Reservas" />
+            <ListView fx:id="LstHistorico" layoutX="434.0" layoutY="26.0" onKeyPressed="#LstHistorico_KeyPressed" onMouseClicked="#LstHistorico_MouseClicked" prefHeight="156.0" prefWidth="321.0" />
+            <Label layoutX="528.0" layoutY="7.0" text="Histórico de Empréstimos" />
+            <TextField fx:id="TxtDataEmpAntigo" layoutX="664.0" layoutY="190.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="434.0" layoutY="195.0" text="Histórico: Data Empréstimo" />
+            <TextField fx:id="TxtDataPrevDevolAntigo" layoutX="664.0" layoutY="218.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="434.0" layoutY="223.0" text="Histórico: Data Prevista Devolução" />
+            <TextField fx:id="TxtDataEfetDevolAntigo" layoutX="664.0" layoutY="246.0" prefHeight="25.0" prefWidth="91.0" />
+            <Label layoutX="434.0" layoutY="251.0" text="Histórico: Data Efetiva Devolução" />
+            <Label layoutX="446.0" layoutY="480.0" text="Cópias Disponíveis do Livro Selecionado" />
+            <TextField fx:id="TxtNomeUsuario" layoutX="565.0" layoutY="406.0" prefHeight="25.0" prefWidth="207.0" />
+            <Label layoutX="446.0" layoutY="411.0" text="Nome do Usuário" />
          </children>
       </Pane>
    </children>

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,9 +50,10 @@ class UsuarioTest {
 
     @Test
     void incluirEmprestimo() {
-        List<Emprestimo> emprestimosOriginal = usuario.getEmprestimos();
+        Set<Emprestimo> emprestimosOriginal = usuario.getEmprestimos();
         Integer emprestimosEsperados = emprestimosOriginal.size()+1;
-        Emprestimo emprestimo = new Emprestimo(usuario);
+        Livro livro = new Livro();
+        Emprestimo emprestimo = new Emprestimo(usuario, livro);
         emprestimo.setLivro(new Livro());
         emprestimo.getLivro().adicionarCopia(new Copia(emprestimo.getLivro()));
         emprestimo.getLivro().adicionarCopia(new Copia(emprestimo.getLivro()));
@@ -67,9 +69,10 @@ class UsuarioTest {
 
     @Test
     void excluirEmprestimo() {
-        List<Emprestimo> emprestimosOriginal = usuario.getEmprestimos();
+        Set<Emprestimo> emprestimosOriginal = usuario.getEmprestimos();
         Integer emprestimosEsperados;
-        Emprestimo emprestimo = new Emprestimo(usuario);
+        Livro livro = new Livro();
+        Emprestimo emprestimo = new Emprestimo(usuario, livro);
         emprestimo.setLivro(new Livro());
         emprestimo.getLivro().adicionarCopia(new Copia(emprestimo.getLivro()));
         emprestimo.getLivro().adicionarCopia(new Copia(emprestimo.getLivro()));
@@ -80,13 +83,13 @@ class UsuarioTest {
         Integer copiasDisponiveisEsperadas;
         if (emprestimosOriginal.isEmpty()) {
             usuario.incluirEmprestimo(emprestimo);
-            usuario.excluirEmprestimo(usuario.getEmprestimos().get(0));
+            usuario.excluirEmprestimo(emprestimo);
             emprestimosEsperados=0;
             copiasDisponiveisEsperadas=emprestimo.getLivro().copiasDisponiveis();
             Assertions.assertEquals(copiasDisponiveisEsperadas, copiasDisponiveisOriginais);
         }
         else {
-            usuario.excluirEmprestimo(usuario.getEmprestimos().get(0));
+            usuario.excluirEmprestimo(emprestimo);
             emprestimosEsperados = emprestimosOriginal.size()-1;
             copiasDisponiveisEsperadas=emprestimo.getLivro().copiasDisponiveis();
             Assertions.assertEquals(copiasDisponiveisEsperadas, copiasDisponiveisOriginais+1);

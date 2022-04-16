@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<HBox maxHeight="150.0" maxWidth="350.0" minHeight="150.0" minWidth="350.0" prefHeight="150.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.femass.edu.prova_prog3_n1_julio.gui.IdentificaUsuarioController">
+   <children>
+      <Pane layoutX="10.0" layoutY="10.0" maxHeight="150.0" maxWidth="350.0" minHeight="150.0" minWidth="350.0" prefHeight="150.0" prefWidth="350.0">
+         <children>
+            <TextField fx:id="TxtNome" layoutX="158.0" layoutY="58.0" />
+            <Label layoutX="25.0" layoutY="63.0" text="Digite o seu nome:" />
+            <Button fx:id="BtnConsulta" layoutX="196.0" layoutY="99.0" mnemonicParsing="false" onAction="#BtnConsulta_Action" text="Consultar Livros" />
+            <Button fx:id="BtnRetorna" layoutX="34.0" layoutY="99.0" mnemonicParsing="false" onAction="#BtnRetorna_Action" text="Retorna" />
+         </children></Pane>
+   </children>
+</HBox>

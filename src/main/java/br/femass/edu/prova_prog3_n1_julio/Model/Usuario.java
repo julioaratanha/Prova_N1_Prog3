@@ -12,7 +12,7 @@ public class Usuario {
     private Endereco endereco;
     private Telefone telefone;
     protected Integer prazoDevolucao=0;
-    private List<Emprestimo> emprestimos = new ArrayList<>();
+    private Set<Emprestimo> emprestimos = new HashSet<>();
     private Boolean atraso = false;
 
     public Usuario() {
@@ -60,8 +60,16 @@ public class Usuario {
         this.prazoDevolucao = prazoDevolucao;
     }
 
-    public List<Emprestimo> getEmprestimos(){
+    public Set<Emprestimo> getEmprestimos(){
         return this.emprestimos;
+    }
+
+    public Integer numeroDeEmprestimosAtivos() {
+        Integer numero = 0;
+        for (Emprestimo emprestimo : getEmprestimos()){
+            if (emprestimo.getAtivo()) numero++;
+        }
+        return numero;
     }
 
     public String incluirEmprestimo(Emprestimo emprestimo){
@@ -110,5 +118,18 @@ public class Usuario {
     public String toString() {
         if (this instanceof Aluno) return "Aluno de "+((Aluno) this).getCurso()+" -> "+this.nome ;
         else return "Professor -> "+this.nome;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return nome.equals(usuario.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
     }
 }

@@ -7,7 +7,6 @@ public class Autor {
 
     private String nome;
     private String sobrenome;
-    private Set<Livro> livros = new HashSet<>();
 
     public Autor(String nome, String sobrenome) {
         this.nome=nome;
@@ -30,16 +29,9 @@ public class Autor {
         this.sobrenome = sobrenome;
     }
 
-    public Set<Livro> getLivros() {
-        return livros;
-    }
-
-    public void adicionarLivro(Livro livro) {
-        this.livros.add(livro);
-    }
-
-    public void removerLivro(Livro livro) {
-        if (!this.livros.isEmpty()) this.livros.remove(livro);
+    @Override
+    public String toString() {
+        return this.nome+" "+this.sobrenome;
     }
 
     @Override

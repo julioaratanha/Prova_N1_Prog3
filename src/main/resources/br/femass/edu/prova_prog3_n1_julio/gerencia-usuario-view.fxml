@@ -29,6 +29,9 @@
             <TextField fx:id="TxtComplemento" disable="true" editable="false" layoutX="196.0" layoutY="173.0" />
             <TextField fx:id="TxtBairro" disable="true" editable="false" layoutX="196.0" layoutY="217.0" />
             <TextField fx:id="TxtCidade" disable="true" editable="false" layoutX="196.0" layoutY="260.0" />
+            <TextField fx:id="TxtUf" disable="true" editable="false" layoutX="196.0" layoutY="304.0" />
+            <TextField fx:id="TxtTelDdd" disable="true" editable="false" layoutX="196.0" layoutY="341.0" prefHeight="25.0" prefWidth="62.0" />
+            <TextField fx:id="TxtTelNum" disable="true" editable="false" layoutX="196.0" layoutY="381.0" />
             <Label layoutX="95.0" layoutY="19.0" text="Código" />
             <Label layoutX="100.0" layoutY="56.0" text="Nome" />
             <Label layoutX="80.0" layoutY="94.0" text="Logradouro" />
@@ -38,10 +41,7 @@
             <Label layoutX="97.0" layoutY="265.0" text="Cidade" />
             <Button fx:id="BtnGravar" disable="true" layoutX="303.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnGravar_Action" text="Gravar" />
             <Button fx:id="BtnCancelar" disable="true" layoutX="196.0" layoutY="521.0" mnemonicParsing="false" onAction="#BtnCancelar_Action" text="Cancelar" />
-            <TextField fx:id="TxtUf" disable="true" editable="false" layoutX="196.0" layoutY="304.0" />
             <Label layoutX="112.0" layoutY="309.0" text="Uf" />
-            <TextField fx:id="TxtTelDdd" disable="true" editable="false" layoutX="196.0" layoutY="341.0" prefHeight="25.0" prefWidth="62.0" />
-            <TextField fx:id="TxtTelNum" disable="true" editable="false" layoutX="196.0" layoutY="381.0" />
             <Label layoutX="64.0" layoutY="346.0" text="Telefone -&gt; DDD" />
             <Label layoutX="53.0" layoutY="386.0" text="Telefone -&gt; Número" />
             <ComboBox fx:id="CboCurso" disable="true" layoutX="206.0" layoutY="426.0" prefWidth="150.0" visible="false" />

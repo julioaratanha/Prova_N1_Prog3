@@ -149,6 +149,7 @@ public class GerenciaUsuarioController implements Initializable {
         TxtUf.setText(usuario.getEndereco().getUf());
         TxtTelDdd.setText(Integer.toString(usuario.getTelefone().getDdd()));
         TxtTelNum.setText(Long.toString(usuario.getTelefone().getNumero()));
+        TxtCodigo.setText(usuario.getCodigo().toString());
         try{
             Aluno aluno = (Aluno) usuario;
             CboCurso.setValue(aluno.getCurso());

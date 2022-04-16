@@ -92,4 +92,16 @@ public class Livro {
         return this.titulo + " - " + this.autor.getNome() + " " + this.autor.getSobrenome()+" - Cópias disponíveis: "+this.copiasDisponiveis();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Livro)) return false;
+        Livro livro = (Livro) o;
+        return getTitulo().equals(livro.getTitulo()) && getAutor().equals(livro.getAutor()) && getGenero().equals(livro.getGenero()) && getAno().equals(livro.getAno()) && getEdicao().equals(livro.getEdicao());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitulo(), getAutor(), getGenero(), getAno(), getEdicao());
+    }
 }

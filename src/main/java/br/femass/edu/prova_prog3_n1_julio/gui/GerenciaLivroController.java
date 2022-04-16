@@ -4,6 +4,7 @@ import br.femass.edu.prova_prog3_n1_julio.Model.*;
 import br.femass.edu.prova_prog3_n1_julio.dao.LivroDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -167,6 +168,7 @@ public class GerenciaLivroController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         atualizarLista();
         limparTela();
 
@@ -181,9 +183,13 @@ public class GerenciaLivroController implements Initializable {
         livro.setGenero(new Genero(TxtGenero.getText()));
         livro.setAno(Integer.parseInt(TxtAno.getText()));
         livro.setEdicao(TxtEdicao.getText());
-        autor.adicionarLivro(livro);
         for (int i=0; i<Integer.parseInt(TxtNumCopias.getText()); i++){
             livro.adicionarCopia(new Copia(livro));
+        }
+        try {
+            autorDao.gravar(autor);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         try {
             livroDao.gravar(livro);
@@ -235,11 +241,11 @@ public class GerenciaLivroController implements Initializable {
     }
 
     private void atualizarLista() {
-        Set<Livro> livros = null;
+        Set<Livro> livros = new HashSet<>();
         try {
-            livros = livroDao.listar();
+            livros.addAll(livroDao.listar());
         } catch (Exception e){
-            livros = new HashSet<Livro>();
+            e.printStackTrace();
         }
         ObservableList<Livro> livrosOb = FXCollections.observableArrayList(livros);
         LstLivros.setItems(livrosOb);
