@@ -16,4 +16,10 @@ class AlunoTest {
         Assertions.assertEquals(Curso.Administração, aluno.getCurso());
     }
 
+    @Test
+    void getPrazoDevolucao(){
+        Aluno aluno = new Aluno(Curso.Administração);
+        Assertions.assertEquals(5,aluno.getPrazoDevolucao());
+        }
+
 }

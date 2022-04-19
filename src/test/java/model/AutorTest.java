@@ -33,4 +33,19 @@ class AutorTest {
         autor.setSobrenome(sobrenomeEsperado);
         Assertions.assertEquals(sobrenomeEsperado, autor.getSobrenome());
     }
+
+    @Test
+    void testeToString(){
+        autor.setNome("Fulano");
+        autor.setSobrenome("Tal");
+        Assertions.assertEquals("Fulano Tal", autor.toString());
+    }
+
+    @Test
+    void testeEquals(){
+        autor.setNome("Fulano");
+        autor.setSobrenome("Tal");
+        Autor autor2 = new Autor("Fulano", "Tal");
+        Assertions.assertTrue(autor.equals(autor2));
+    }
 }

@@ -49,6 +49,39 @@ class UsuarioTest {
     }
 
     @Test
+    void numeroDeEmprestimosAtivosENumeroDeReservas(){
+        Usuario usuario1 = new Usuario();
+        usuario1.setPrazoDevolucao(10);
+        Livro livro1 = new Livro();
+        livro1.adicionarCopia(new Copia(livro1));
+        livro1.adicionarCopia(new Copia(livro1));
+        Livro livro2 = new Livro();
+        livro2.adicionarCopia(new Copia(livro2));
+        livro2.adicionarCopia(new Copia(livro2));
+        Livro livro3 = new Livro();
+        livro3.adicionarCopia(new Copia(livro3));
+        livro3.adicionarCopia(new Copia(livro3));
+        Livro livro4 = new Livro();
+        livro4.adicionarCopia(new Copia(livro4));
+        livro4.adicionarCopia(new Copia(livro4));
+        Livro livro5 = new Livro();
+        livro5.adicionarCopia(new Copia(livro5));
+        livro5.adicionarCopia(new Copia(livro5));
+        usuario1.incluirEmprestimo(new Emprestimo(usuario1, livro1));
+        usuario1.incluirEmprestimo(new Emprestimo(usuario1, livro2));
+        usuario1.incluirEmprestimo(new Emprestimo(usuario1, livro3));
+        usuario1.incluirEmprestimo(new Emprestimo(usuario1, livro4));
+        usuario1.incluirEmprestimo(new Emprestimo(usuario1, livro5));
+        Integer tresEmprestimosAtivos=1;
+        for (Emprestimo emprestimo: usuario1.getEmprestimos()){
+            if (tresEmprestimosAtivos<=3) emprestimo.setAtivo(true);
+            tresEmprestimosAtivos++;
+        }
+        Assertions.assertEquals(3, usuario1.numeroDeEmprestimosAtivos());
+        Assertions.assertEquals(2, usuario1.numeroDeReservas());
+    }
+
+    @Test
     void incluirEmprestimo() {
         Set<Emprestimo> emprestimosOriginal = usuario.getEmprestimos();
         Integer emprestimosEsperados = emprestimosOriginal.size()+1;
@@ -97,5 +130,24 @@ class UsuarioTest {
         }
 
         Assertions.assertEquals(emprestimosEsperados, usuario.getEmprestimos().size());
+    }
+
+    @Test
+    void testeToString(){
+        Aluno aluno = new Aluno(Curso.Sistemas_de_Informação);
+        aluno.setNome("Fulano de Tal");
+        Professor professor = new Professor();
+        professor.setNome("Cicrano de Tal");
+        Assertions.assertEquals("Aluno de Sistemas_de_Informação -> Fulano de Tal", aluno.toString());
+        Assertions.assertEquals("Professor -> Cicrano de Tal", professor.toString());
+    }
+
+    @Test
+    void testeEquals(){
+        Usuario usuario1 = new Usuario();
+        usuario1.setNome("Fulano de Tal");
+        Usuario usuario2 = new Usuario();
+        usuario2.setNome("Fulano de Tal");
+        Assertions.assertTrue(usuario1.equals(usuario2));
     }
 }

@@ -174,7 +174,6 @@ public class GerenciaEmprestimosController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        emprestimo.setAtivo(true);
         emprestimo.setDataEmprestimoEDataDevolucaoPrevista(LocalDateTime.now().toLocalDate());
         try {
             emprestimosAtivosDao.gravar(emprestimo);

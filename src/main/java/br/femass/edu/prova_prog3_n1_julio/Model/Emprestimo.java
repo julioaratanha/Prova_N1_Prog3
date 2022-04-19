@@ -27,6 +27,7 @@ public class Emprestimo {
     }
 
     public void setDataEmprestimoEDataDevolucaoPrevista(LocalDate dataEmprestimo) {
+        this.setAtivo(true);
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucaoPrevista = dataEmprestimo.plusDays(this.usuario.getPrazoDevolucao());
     }
