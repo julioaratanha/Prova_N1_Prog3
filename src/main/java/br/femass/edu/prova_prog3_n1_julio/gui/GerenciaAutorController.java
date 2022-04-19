@@ -220,7 +220,7 @@ public class GerenciaAutorController implements Initializable {
     }
 
     private void atualizarLista() {
-        Set<Autor> autores = new HashSet<>();;
+        Set<Autor> autores = new HashSet<>();
         try {
             autores = autorDao.listar();
         } catch (Exception e){

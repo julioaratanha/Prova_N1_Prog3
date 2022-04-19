@@ -123,8 +123,7 @@ public class GerenciaLivroController implements Initializable {
         BtnRemoveCopia.setDisable(true);
     }
 
-    private void exibirLivro(){
-        Livro livro = LstLivros.getSelectionModel().getSelectedItem();
+    private void exibirLivro(Livro livro){
         if (livro==null) return;
         TxtTitulo.setText(livro.getTitulo());
         TxtNomeAutor.setText(livro.getAutor().getNome());
@@ -137,7 +136,6 @@ public class GerenciaLivroController implements Initializable {
         TxtCopDisp.setVisible(true);
         TxtCopDisp.setText(livro.copiasDisponiveis().toString());
         LblCopDisp.setVisible(true);
-        livroSelecionado=livro;
         BtnAdicionaCopia.setDisable(false);
         BtnRemoveCopia.setDisable(false);
     }
@@ -145,12 +143,14 @@ public class GerenciaLivroController implements Initializable {
     //Actions
     @FXML
     private void LstLivros_MouseClicked(MouseEvent evento){
-        exibirLivro();
+        livroSelecionado=LstLivros.getSelectionModel().getSelectedItem();
+        exibirLivro(livroSelecionado);
     }
 
     @FXML
     private void LstLivros_KeyPressed(KeyEvent evento){
-        exibirLivro();
+        livroSelecionado=LstLivros.getSelectionModel().getSelectedItem();
+        exibirLivro(livroSelecionado);
     }
 
     @FXML
@@ -217,14 +217,14 @@ public class GerenciaLivroController implements Initializable {
     private void BtnAdicionaCopia_Action(ActionEvent evento){
         livroSelecionado.adicionarCopia(new Copia(livroSelecionado));
         atualizarLista();
-        exibirLivro();
+        exibirLivro(livroSelecionado);
     }
 
     @FXML
     private void BtnRemoveCopia_Action(ActionEvent evento){
         livroSelecionado.removerCopia();
         atualizarLista();
-        exibirLivro();
+        exibirLivro(livroSelecionado);
     }
 
 

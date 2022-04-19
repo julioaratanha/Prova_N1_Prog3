@@ -154,6 +154,11 @@ public class ConsultaLivroController implements Initializable {
             alert.setContentText(usuarioSelecionado.incluirEmprestimo(emprestimo));
             if (usuarioSelecionado.getEmprestimos().size()<5 && livroSelecionado.copiasDisponiveis()>0) {
                 try {
+                    usuarioDao.gravar(usuarioSelecionado);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
                     reservasDao.gravar(emprestimo);
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -176,6 +181,11 @@ public class ConsultaLivroController implements Initializable {
         }
         if (!emprestimo.getAtivo()) {
             alert.setContentText(usuarioSelecionado.excluirEmprestimo(emprestimo));
+            try {
+                usuarioDao.gravar(usuarioSelecionado);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             try {
                 reservasDao.excluir(emprestimo);
             } catch (Exception e) {

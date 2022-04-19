@@ -1,0 +1,163 @@
+<set>
+  <br.femass.edu.prova__prog3__n1__julio.Model.Professor>
+    <codigo>2</codigo>
+    <nome>Alan Galante</nome>
+    <endereco>
+      <logradouro>Rua B</logradouro>
+      <numero>4</numero>
+      <complemento>Ap. 02</complemento>
+      <bairro>Praia</bairro>
+      <cidade>Macaé</cidade>
+      <uf>RJ</uf>
+    </endereco>
+    <telefone>
+      <ddd>22</ddd>
+      <numero>777884411</numero>
+    </telefone>
+    <prazoDevolucao>30</prazoDevolucao>
+    <emprestimos/>
+  </br.femass.edu.prova__prog3__n1__julio.Model.Professor>
+  <br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+    <codigo>3</codigo>
+    <nome>Pedro Pires</nome>
+    <endereco>
+      <logradouro>Rua C</logradouro>
+      <numero>41</numero>
+      <complemento>Ap. 09</complemento>
+      <bairro>Riviera</bairro>
+      <cidade>Macaé</cidade>
+      <uf>RJ</uf>
+    </endereco>
+    <telefone>
+      <ddd>22</ddd>
+      <numero>966785511</numero>
+    </telefone>
+    <prazoDevolucao>5</prazoDevolucao>
+    <emprestimos/>
+    <curso>Engenharia_de_Produção</curso>
+  </br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+  <br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+    <codigo>4</codigo>
+    <nome>Marcelo</nome>
+    <endereco>
+      <logradouro>Rua N</logradouro>
+      <numero>45</numero>
+      <complemento>Ap. 09</complemento>
+      <bairro>Cancela</bairro>
+      <cidade>Macaé</cidade>
+      <uf>RJ</uf>
+    </endereco>
+    <telefone>
+      <ddd>22</ddd>
+      <numero>999887744</numero>
+    </telefone>
+    <prazoDevolucao>5</prazoDevolucao>
+    <emprestimos/>
+    <curso>Administração</curso>
+  </br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+  <br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+    <codigo>1</codigo>
+    <nome>Julio Aratanha</nome>
+    <endereco>
+      <logradouro>Rua X</logradouro>
+      <numero>10</numero>
+      <complemento>Ap. 02</complemento>
+      <bairro>Praia</bairro>
+      <cidade>Macaé</cidade>
+      <uf>RJ</uf>
+    </endereco>
+    <telefone>
+      <ddd>22</ddd>
+      <numero>999997777</numero>
+    </telefone>
+    <prazoDevolucao>5</prazoDevolucao>
+    <emprestimos>
+      <br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+        <usuario class="br.femass.edu.prova_prog3_n1_julio.Model.Aluno" reference="../../.."/>
+        <livro>
+          <codigo>3</codigo>
+          <titulo>Admirável Mundo Novo</titulo>
+          <autor>
+            <nome>Aldous</nome>
+            <sobrenome>Huxley</sobrenome>
+          </autor>
+          <genero>
+            <nome>Ficção</nome>
+          </genero>
+          <ano>1931</ano>
+          <edicao>30</edicao>
+          <copias>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>26</codigo>
+              <fixo>false</fixo>
+              <emprestada>true</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>23</codigo>
+              <fixo>true</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>24</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>29</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>25</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>33</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>28</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>30</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>31</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>32</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <codigo>27</codigo>
+              <fixo>false</fixo>
+              <emprestada>false</emprestada>
+              <livro reference="../../.."/>
+            </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          </copias>
+        </livro>
+        <ativo>false</ativo>
+      </br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+    </emprestimos>
+    <curso>Sistemas_de_Informação</curso>
+  </br.femass.edu.prova__prog3__n1__julio.Model.Aluno>
+</set>

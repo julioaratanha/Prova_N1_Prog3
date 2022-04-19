@@ -175,6 +175,12 @@ public class GerenciaEmprestimosController implements Initializable {
             e.printStackTrace();
         }
         emprestimo.setDataEmprestimoEDataDevolucaoPrevista(LocalDateTime.now().toLocalDate());
+        Usuario usuario = emprestimo.getUsuario();
+        try {
+            usuarioDao.gravar(usuario);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try {
             emprestimosAtivosDao.gravar(emprestimo);
         } catch (Exception e) {
@@ -194,6 +200,11 @@ public class GerenciaEmprestimosController implements Initializable {
         }
         Usuario usuario = emprestimo.getUsuario();
         usuario.excluirEmprestimo(emprestimo);
+        try {
+            usuarioDao.gravar(usuario);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         emprestimo.setAtivo(false);
         emprestimo.setDataDevolucaoEfetiva(LocalDateTime.now().toLocalDate());
         try {

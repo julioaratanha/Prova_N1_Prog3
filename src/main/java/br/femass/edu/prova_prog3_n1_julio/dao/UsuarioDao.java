@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 public class UsuarioDao implements Dao<Usuario> {
-    private static final String nomeArquivo = "usuario.xml";
+    private static final String nomeArquivo = "usuarios.xml";
     private Set<Usuario> usuarios = new HashSet<>();
 
     private void persistir(){
