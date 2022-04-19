@@ -125,6 +125,7 @@ public class GerenciaLivroController implements Initializable {
 
     private void exibirLivro(){
         Livro livro = LstLivros.getSelectionModel().getSelectedItem();
+        if (livro==null) return;
         TxtTitulo.setText(livro.getTitulo());
         TxtNomeAutor.setText(livro.getAutor().getNome());
         TxtSobrenomeAutor.setText(livro.getAutor().getSobrenome());
@@ -221,14 +222,7 @@ public class GerenciaLivroController implements Initializable {
 
     @FXML
     private void BtnRemoveCopia_Action(ActionEvent evento){
-        for (Copia copia: livroSelecionado.getCopias()){
-            //remove apenas uma copia que não seja fixa e que não esteja emprestada.
-            //não é possível remover caso só haja uma cópia. Neste caso deve-se excluir o livro.
-            if (!copia.getFixo() && (!copia.getEmprestada())) {
-                livroSelecionado.removerCopia(copia);
-                break;
-            }
-        }
+        livroSelecionado.removerCopia();
         atualizarLista();
         exibirLivro();
     }

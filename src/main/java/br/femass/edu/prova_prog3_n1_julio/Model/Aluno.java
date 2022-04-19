@@ -5,8 +5,9 @@ public class Aluno extends Usuario {
 
     private Curso curso;
 
-    public Aluno() {
+    public Aluno(Curso curso) {
         this.prazoDevolucao=5;
+        this.curso=curso;
     }
 
     public Curso getCurso() {

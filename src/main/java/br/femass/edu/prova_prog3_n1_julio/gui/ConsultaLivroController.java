@@ -96,12 +96,8 @@ public class ConsultaLivroController implements Initializable {
     }
 
     private void atualizarLista() {
-        Integer ativos=0;
-        Integer reservas=0;
-        for (Emprestimo emprestimo : usuarioSelecionado.getEmprestimos()){
-            if (emprestimo.getAtivo()) ativos++;
-            else reservas++;
-        }
+        Integer ativos=usuarioSelecionado.numeroDeEmprestimosAtivos();
+        Integer reservas=usuarioSelecionado.numeroDeReservas();
         TxtEmpAtivos.setText(ativos.toString());
         TxtReservas.setText(reservas.toString());
         Set<Livro> livros = new HashSet<>();
@@ -132,12 +128,14 @@ public class ConsultaLivroController implements Initializable {
     @FXML
     private void LstEmprestimos_MouseClicked(MouseEvent evento){
         Emprestimo emprestimo = LstEmprestimos.getSelectionModel().getSelectedItem();
+        if (emprestimo==null) return;
         exibirLivro(emprestimo.getLivro());
     }
 
     @FXML
     private void LstEmprestimos_KeyPressed(KeyEvent evento){
         Emprestimo emprestimo = LstEmprestimos.getSelectionModel().getSelectedItem();
+        if (emprestimo==null) return;
         exibirLivro(emprestimo.getLivro());
     }
 
@@ -148,17 +146,43 @@ public class ConsultaLivroController implements Initializable {
     }
 
     @FXML
+    private void BtnReserva_Action(ActionEvent evento){
+        Emprestimo emprestimo = new Emprestimo(usuarioSelecionado, livroSelecionado);
+        Alert alert = new Alert(AlertType.WARNING);
+        if (livroSelecionado==null) alert.setContentText("Por favor, selecione um livro!");
+        else {
+            alert.setContentText(usuarioSelecionado.incluirEmprestimo(emprestimo));
+            if (usuarioSelecionado.getEmprestimos().size()<5 && livroSelecionado.copiasDisponiveis()>0) {
+                try {
+                    reservasDao.gravar(emprestimo);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        exibirLivro(livroSelecionado);
+        atualizarLista();
+        alert.show();
+    }
+
+    @FXML
     private void BtnCancelaReserva_Action(ActionEvent evento){
+        Alert alert = new Alert(AlertType.WARNING);
         Emprestimo emprestimo = LstEmprestimos.getSelectionModel().getSelectedItem();
-        if (emprestimo==null) return;
+        if (emprestimo==null) {
+            alert.setContentText("Por favor, selecione uma reserva!");
+            alert.show();
+            return;
+        }
         if (!emprestimo.getAtivo()) {
-            usuarioSelecionado.excluirEmprestimo(emprestimo);
+            alert.setContentText(usuarioSelecionado.excluirEmprestimo(emprestimo));
             try {
                 reservasDao.excluir(emprestimo);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }else alert.setContentText("Empréstimo ativo! Não é possível excluir!");
+        alert.show();
         exibirLivro(emprestimo.getLivro());
         atualizarLista();
     }
@@ -167,31 +191,6 @@ public class ConsultaLivroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
        atualizarLista();
-       EventHandler<ActionEvent> event = new
-                EventHandler<ActionEvent>() {
-                    public void handle(ActionEvent e) {
-                        Alert alert = new Alert(AlertType.WARNING);
-                        if (livroSelecionado==null) alert.setContentText("Por favor, selecione um livro!");
-                        else if ((Integer.parseInt(TxtEmpAtivos.getText())+Integer.parseInt(TxtReservas.getText()))<5) {
-                            if (livroSelecionado.copiasDisponiveis()>0) {
-                                Emprestimo emprestimo = new Emprestimo(usuarioSelecionado, livroSelecionado);
-                                usuarioSelecionado.incluirEmprestimo(emprestimo);
-                                try {
-                                    reservasDao.gravar(emprestimo);
-                                } catch (Exception ex) {
-                                    ex.printStackTrace();
-                                }
-                                alert.setContentText("Reserva efetuada com sucesso!");
-                            }else alert.setContentText("Não foi possível efetuar reserva!\nNão há cópias deste livro disponíveis!");
-                        }else{
-                            alert.setContentText("Não foi possível efetuar reserva!\nLimite de empréstimos atingido!");
-                        }
-                        exibirLivro(livroSelecionado);
-                        atualizarLista();
-                        alert.show();
-                    }
-                };
-       BtnReserva.setOnAction(event);
     }
 
 }

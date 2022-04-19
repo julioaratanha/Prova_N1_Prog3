@@ -12,14 +12,14 @@ class CopiaTest {
     Copia copia = new Copia(livro);
 
     @Test
-    void setCodigo() {
+    void setEGetCodigo() {
         Integer esperado = 6;
         copia.setCodigo(esperado);
         Assertions.assertEquals(esperado, copia.getCodigo());
     }
 
     @Test
-    void setFixo() {
+    void setEGetFixo() {
         Boolean esperado = true;
         copia.setFixo(true);
         Assertions.assertEquals(esperado, copia.getFixo());
@@ -38,7 +38,7 @@ class CopiaTest {
     }
 
     @Test
-    void setEmprestada() {
+    void setEGetEmprestada() {
         Boolean esperado = true;
         copia.setEmprestada(esperado);
         Assertions.assertEquals(esperado, copia.getEmprestada());

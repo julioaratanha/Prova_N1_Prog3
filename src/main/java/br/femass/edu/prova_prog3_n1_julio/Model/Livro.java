@@ -13,9 +13,8 @@ public class Livro {
     private String edicao;
     private Set<Copia> copias = new HashSet<>();
 
-
     public Livro() {
-        this.codigo=GeradorCodigo.codigoLivro+1;
+        this.codigo = GeradorCodigo.codigoLivro + 1;
     }
 
     public Integer getCodigo() {
@@ -66,38 +65,52 @@ public class Livro {
         this.edicao = edicao;
     }
 
-    public void adicionarCopia(Copia copia){
-        if (this.copias.isEmpty()) copia.setFixo(true);
+    public void adicionarCopia(Copia copia) {
+        if (this.copias.isEmpty())
+            copia.setFixo(true);
         this.copias.add(copia);
     }
 
-    public void removerCopia(Copia copia){
-        if (!this.copias.isEmpty()) this.copias.remove(copia);
+    public void removerCopia() {
+        for (Copia copia : this.copias) {
+            // remove apenas uma copia que não seja fixa e que não esteja emprestada.
+            // não é possível remover caso só haja uma cópia.
+            if (!copia.getFixo() && (!copia.getEmprestada())) {
+                this.copias.remove(copia);
+                break;
+            }
+        }
     }
 
     public Set<Copia> getCopias() {
         return this.copias;
     }
 
-    public Integer copiasDisponiveis(){
+    public Integer copiasDisponiveis() {
         Integer resultado = 0;
-        for (Copia copia: this.copias){
-            if ((!copia.getEmprestada()) && (!copia.getFixo())) resultado++;
+        for (Copia copia : this.copias) {
+            if ((!copia.getEmprestada()) && (!copia.getFixo()))
+                resultado++;
         }
         return resultado;
     }
 
     @Override
     public String toString() {
-        return this.titulo + " - " + this.autor.getNome() + " " + this.autor.getSobrenome()+" - Cópias disponíveis: "+this.copiasDisponiveis();
+        return this.titulo + " - " + this.autor.getNome() + " " + this.autor.getSobrenome() + " - Cópias disponíveis: "
+                + this.copiasDisponiveis();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Livro)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Livro))
+            return false;
         Livro livro = (Livro) o;
-        return getTitulo().equals(livro.getTitulo()) && getAutor().equals(livro.getAutor()) && getGenero().equals(livro.getGenero()) && getAno().equals(livro.getAno()) && getEdicao().equals(livro.getEdicao());
+        return getTitulo().equals(livro.getTitulo()) && getAutor().equals(livro.getAutor())
+                && getGenero().equals(livro.getGenero()) && getAno().equals(livro.getAno())
+                && getEdicao().equals(livro.getEdicao());
     }
 
     @Override

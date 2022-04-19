@@ -13,7 +13,6 @@ public class Usuario {
     private Telefone telefone;
     protected Integer prazoDevolucao=0;
     private Set<Emprestimo> emprestimos = new HashSet<>();
-    private Boolean atraso = false;
 
     public Usuario() {
         this.codigo=GeradorCodigo.codigoUsuario+1;
@@ -72,6 +71,10 @@ public class Usuario {
         return numero;
     }
 
+    public Integer numeroDeReservas(){
+        return this.emprestimos.size()-numeroDeEmprestimosAtivos();
+    }
+
     public String incluirEmprestimo(Emprestimo emprestimo){
         if (this.emprestimos.size()<5){
             if (emprestimo.getLivro().copiasDisponiveis()>0) {
@@ -85,17 +88,13 @@ public class Usuario {
                 this.emprestimos.add(emprestimo);
                 return "Empréstimo efetivado com sucesso!";
             }
-            return "Não foi possível efetivar empréstimo! Não há cópias deste livro disponíveis!";
+            return "Não foi possível efetivar empréstimo!\nNão há cópias deste livro disponíveis!";
         }
-        else return "Não foi possível efetivar empréstimo! Limite de empréstimos atingido (5)";
+        else return "Não foi possível efetivar empréstimo!\nLimite de empréstimos atingido (5)";
     }
 
     public String excluirEmprestimo(Emprestimo emprestimo){
         if (!this.emprestimos.isEmpty()) {
-            LocalDateTime agora = LocalDateTime.now();
-            LocalDate dataEfetiva = agora.toLocalDate();
-            if (dataEfetiva.isAfter(emprestimo.getDataDevolucaoPrevista())) this.atraso=true;
-
             for (Copia copia : emprestimo.getLivro().getCopias()){
                 if ((!copia.getFixo()) && (copia.getEmprestada())){
                     copia.setEmprestada(false);
@@ -103,10 +102,6 @@ public class Usuario {
                 }
             }
             this.emprestimos.remove(emprestimo);
-            if (this.atraso) {
-                this.atraso=false;
-                return "Empréstimo excluído com sucesso, porém, com atraso!!";
-            };
             return "Empréstimo excluído com sucesso!";
         }
         else return "Não há empréstimos a excluir!";

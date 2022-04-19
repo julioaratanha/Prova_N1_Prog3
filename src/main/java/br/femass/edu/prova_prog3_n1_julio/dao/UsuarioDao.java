@@ -25,8 +25,6 @@ public class UsuarioDao implements Dao<Usuario> {
     private void persistir(){
         XStream xstream = new XStream();
         try{
-
-            //ArrayConverter converter = new ArrayConverter();
             String xml=xstream.toXML(usuarios);
             FileWriter arquivo = null;
             try {
@@ -44,28 +42,32 @@ public class UsuarioDao implements Dao<Usuario> {
 
     @Override
     public void gravar(Usuario usuario) throws Exception {
-        //listar();
         usuarios.add(usuario);
-        //persistir();
+        persistir();
     }
 
     @Override
     public Set<Usuario> listar() throws Exception {
-        /*
         try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
-            usuarios = (List<Usuario>) xstream.fromXML(arquivo);
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Endereco.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Telefone.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Emprestimo.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Usuario.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Professor.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Aluno.class});
+            usuarios = (Set<Usuario>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
         return usuarios;
     }
 
     @Override
     public void excluir(Usuario usuario) throws Exception {
         usuarios.remove(usuario);
-        //persistir();
+        persistir();
     }
 
 }

@@ -20,6 +20,7 @@ import static br.femass.edu.prova_prog3_n1_julio.gui.IdentificaUsuarioController
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -100,36 +101,36 @@ public class GerenciaEmprestimosController implements Initializable {
         }
         ObservableList<Emprestimo> historicoDeEmprestimosOb = FXCollections.observableArrayList(historicoDeEmprestimos);
         LstHistorico.setItems(historicoDeEmprestimosOb);
-        /*
-
-        TxtEmpAtivos.setText(ativos.toString());
-        TxtReservas.setText(reservas.toString());
-     */
     }
 
     private void exibirReserva(){
         Emprestimo reserva = LstReservas.getSelectionModel().getSelectedItem();
+        if (reserva==null) return;
         TxtCopiasDisponiveis.setText(reserva.getLivro().copiasDisponiveis().toString());
         TxtEmpAtivos.setText(reserva.getUsuario().numeroDeEmprestimosAtivos().toString());
         TxtNomeUsuario.setText(reserva.getUsuario().getNome());
     }
 
     private void exibirEmprestimosAtivos(){
-        Emprestimo emprestimoAtivo = LstEmprestimosAtivos.getSelectionModel().getSelectedItem();
+        Emprestimo emprestimoAtivo=LstEmprestimosAtivos.getSelectionModel().getSelectedItem();
+        if (emprestimoAtivo==null) return;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         TxtCopiasDisponiveis.setText(emprestimoAtivo.getLivro().copiasDisponiveis().toString());
         TxtEmpAtivos.setText(emprestimoAtivo.getUsuario().numeroDeEmprestimosAtivos().toString());
-        TxtDataEmpAtivo.setText(emprestimoAtivo.getDataEmprestimo().toString());
-        TxtDataPrevDevolAtivo.setText(emprestimoAtivo.getDataDevolucaoPrevista().toString());
+        TxtDataEmpAtivo.setText(emprestimoAtivo.getDataEmprestimo().format(formatter));
+        TxtDataPrevDevolAtivo.setText(emprestimoAtivo.getDataDevolucaoPrevista().format(formatter));
         TxtNomeUsuario.setText(emprestimoAtivo.getUsuario().getNome());
     }
 
     private void exibirHistorico(){
         Emprestimo historico = LstHistorico.getSelectionModel().getSelectedItem();
+        if (historico==null) return;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         TxtCopiasDisponiveis.setText(historico.getLivro().copiasDisponiveis().toString());
         TxtEmpAtivos.setText(historico.getUsuario().numeroDeEmprestimosAtivos().toString());
-        TxtDataEmpAntigo.setText(historico.getDataEmprestimo().toString());
-        TxtDataPrevDevolAntigo.setText(historico.getDataDevolucaoPrevista().toString());
-        TxtDataEfetDevolAntigo.setText(historico.getDataDevolucaoPrevista().toString());
+        TxtDataEmpAntigo.setText(historico.getDataEmprestimo().format(formatter));
+        TxtDataPrevDevolAntigo.setText(historico.getDataDevolucaoPrevista().format(formatter));
+        TxtDataEfetDevolAntigo.setText(historico.getDataDevolucaoEfetiva().format(formatter));
         TxtNomeUsuario.setText(historico.getUsuario().getNome());
     }
 

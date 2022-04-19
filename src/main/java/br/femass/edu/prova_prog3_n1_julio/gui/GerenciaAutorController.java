@@ -184,6 +184,7 @@ public class GerenciaAutorController implements Initializable {
 
     private void exibirAutor(){
         Autor autor = LstAutores.getSelectionModel().getSelectedItem();
+        if (autor==null) return;
         TxtNome.setText(autor.getNome());
         TxtSobrenome.setText(autor.getSobrenome());
 
@@ -203,6 +204,7 @@ public class GerenciaAutorController implements Initializable {
 
     private void exibirLivro(){
         Livro livro = LstLivros.getSelectionModel().getSelectedItem();
+        if (livro==null) return;
         TxtCodigo.setText(Integer.toString(livro.getCodigo()));
         TxtTitulo.setText(livro.getTitulo());
         TxtGenero.setText(livro.getGenero().getNome());

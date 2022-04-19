@@ -18,8 +18,8 @@ class EmprestimoTest {
 
     @Test
     void getDataEmprestimo() {
-        LocalDateTime agora = LocalDateTime.now();
-        LocalDate hoje = agora.toLocalDate();
+        LocalDate hoje = LocalDateTime.now().toLocalDate();
+        emprestimo.setDataEmprestimoEDataDevolucaoPrevista(hoje);
         Integer mesEsperado = hoje.getMonthValue();
         Integer diaEsperado = hoje.getDayOfMonth();
         Integer anoEsperado = hoje.getYear();

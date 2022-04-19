@@ -96,6 +96,7 @@ public class GerenciaUsuarioController implements Initializable {
         TxtUf.setText("");
         TxtTelDdd.setText("");
         TxtTelNum.setText("");
+        TxtCodigo.setText("");
         CboCurso.setValue(null);
     }
 
@@ -204,7 +205,7 @@ public class GerenciaUsuarioController implements Initializable {
     @FXML
     private void BtnGravar_Action(ActionEvent evento){
         if (aluno) {
-            Aluno aluno = new Aluno();
+            Aluno aluno = new Aluno(Curso.valueOf(String.valueOf(CboCurso.getValue())));
             cadastroUsuario(aluno);
         }
         else {
@@ -237,8 +238,7 @@ public class GerenciaUsuarioController implements Initializable {
         usuario.setNome(TxtNome.getText());
         usuario.setEndereco(new Endereco(TxtLogradouro.getText(), Integer.parseInt(TxtNumero.getText()), TxtComplemento.getText(), TxtBairro.getText(), TxtCidade.getText(),TxtUf.getText()));
         usuario.setTelefone(new Telefone(Integer.parseInt(TxtTelDdd.getText()), Long.parseLong(TxtTelNum.getText())));
-        //Curso curso = Curso.valueOf(CboCurso.getValue());
-        //if (aluno) ((Aluno) usuario).setCurso(curso);
+        //if (aluno) ((Aluno) usuario).setCurso(CboCurso.getValue());
         try {
             usuarioDao.gravar(usuario);
         } catch (Exception e) {

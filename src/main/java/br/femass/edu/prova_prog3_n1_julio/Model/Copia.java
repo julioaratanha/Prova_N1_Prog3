@@ -46,9 +46,4 @@ public class Copia {
         this.emprestada = emprestada;
     }
 
-    @Override
-    public String toString() {
-        if (this.fixo) return "Cópia número "+this.codigo+" do livro '"+ this.livro.getTitulo()+"' (Proibido empréstimo! Leitura apenas na Biblioteca!)";
-        else return "Cópia número "+this.codigo+" do livro '"+ this.livro.getTitulo()+"'";
-    }
 }

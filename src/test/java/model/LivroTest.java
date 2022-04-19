@@ -72,7 +72,7 @@ class LivroTest {
     void removerCopia() {
         Integer esperado = livro.getCopias().size()-1;
         if (!this.livro.getCopias().isEmpty()) {
-            livro.removerCopia(livro.getCopias().iterator().next());
+            livro.removerCopia();
             Assertions.assertEquals(esperado, livro.getCopias().size());
         }else Assertions.assertEquals(0, livro.getCopias().size());
     }

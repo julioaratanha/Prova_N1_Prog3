@@ -45,7 +45,6 @@ public class IdentificaUsuarioController implements Initializable {
                 if (usuario.getNome().equals(nome)) {
                     usuarioSelecionado=usuario;
                     BibliotecaApplication.irTelaConsultaReservaLivros();
-                    System.out.println("Depois de abrir a janela!");
                     break;
                 }
             }

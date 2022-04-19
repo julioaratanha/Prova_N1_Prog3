@@ -1,6 +1,7 @@
 package br.femass.edu.prova_prog3_n1_julio.Model;
 
 
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.*;
 
@@ -18,10 +19,6 @@ public class Emprestimo {
 
     public Emprestimo(Usuario usuario, Livro livro) {
          this.usuario=usuario;
-         //LocalDate agora = LocalDateTime.now().toLocalDate();
-         //this.dataEmprestimo= agora.toLocalDate();
-         //LocalDate devolucao = agora.plusDays(this.usuario.getPrazoDevolucao());
-         //this.dataDevolucaoPrevista=devolucao;
          this.livro=livro;
     }
 
@@ -73,7 +70,9 @@ public class Emprestimo {
 
     @Override
     public String toString() {
-        if (this.ativo) return this.livro.getTitulo()+" - Data de Devolução prevista: "+this.dataDevolucaoPrevista;
-        return " Reservado: "+this.livro.getTitulo()+" - Aguardando confirmação";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        if (this.ativo) return this.livro.getTitulo()+" - Data de Devolução prevista: "+this.dataDevolucaoPrevista.format(formatter);
+        else if(this.dataDevolucaoEfetiva!=null) return this.livro.getTitulo()+" - Data de Devolução efetiva: "+this.dataDevolucaoEfetiva.format(formatter);
+        else return "Reservado: "+this.livro.getTitulo()+" - Aguardando confirmação";
     }
 }

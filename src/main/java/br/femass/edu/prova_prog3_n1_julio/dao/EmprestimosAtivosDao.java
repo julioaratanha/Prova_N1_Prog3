@@ -1,9 +1,11 @@
 package br.femass.edu.prova_prog3_n1_julio.dao;
 
 import br.femass.edu.prova_prog3_n1_julio.Model.Emprestimo;
+import com.thoughtworks.xstream.XStream;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.io.File;
 
 public class EmprestimosAtivosDao implements Dao<Emprestimo> {
 
@@ -40,14 +42,20 @@ public class EmprestimosAtivosDao implements Dao<Emprestimo> {
 
     @Override
     public Set<Emprestimo> listar() throws Exception {
-        /*
+
         try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Usuario.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Aluno.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Professor.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Livro.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Emprestimo.class});
+            xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Copia.class});
             emprestimosAtivos = (Set<Emprestimo>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
         return emprestimosAtivos;
     }
 

@@ -4,8 +4,11 @@ import br.femass.edu.prova_prog3_n1_julio.Model.Livro;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.SingleValueConverter;
-import com.thoughtworks.xstream.converters.collections.ArrayConverter;
+//import com.thoughtworks.xstream.converters.collections;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.mapper.Mapper;
+import com.thoughtworks.xstream.converters.reflection.ReflectionConverter;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 
 
 import java.io.File;
@@ -24,9 +27,8 @@ public class LivroDao implements Dao<Livro> {
     private void persistir(){
         XStream xstream = new XStream();
         try{
-
-            //ArrayConverter converter = new ArrayConverter();
             String xml=xstream.toXML(livros);
+
             FileWriter arquivo = null;
             try {
                 arquivo = new FileWriter(nomeArquivo);
@@ -43,27 +45,29 @@ public class LivroDao implements Dao<Livro> {
 
     @Override
     public void gravar(Livro livro) throws Exception {
-        //listar();
         livros.add(livro);
-        //persistir();
+        persistir();
     }
 
     @Override
     public Set<Livro> listar() throws Exception {
-        /*
         try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
-            livros = (List<Livro>) xstream.fromXML(arquivo);
+            xstream.allowTypes(new Class[] {br.femass.edu.prova_prog3_n1_julio.Model.Livro.class});
+            xstream.allowTypes(new Class[] {br.femass.edu.prova_prog3_n1_julio.Model.Autor.class});
+            xstream.allowTypes(new Class[] {br.femass.edu.prova_prog3_n1_julio.Model.Copia.class});
+            xstream.allowTypes(new Class[] {br.femass.edu.prova_prog3_n1_julio.Model.Genero.class});
+            livros = (Set<Livro>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
         return livros;
     }
 
     @Override
     public void excluir(Livro livro) throws Exception {
         livros.remove(livro);
-        //persistir();
+        persistir();
     }
 }

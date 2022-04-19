@@ -1,0 +1,333 @@
+<set>
+  <br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+    <dataEmprestimo>2022-04-18</dataEmprestimo>
+    <dataDevolucaoPrevista>2022-04-23</dataDevolucaoPrevista>
+    <dataDevolucaoEfetiva>2022-04-18</dataDevolucaoEfetiva>
+    <usuario class="br.femass.edu.prova_prog3_n1_julio.Model.Aluno">
+      <codigo>1</codigo>
+      <nome>Julio Aratanha</nome>
+      <endereco>
+        <logradouro>Rua X</logradouro>
+        <numero>122</numero>
+        <complemento>Ap. 2</complemento>
+        <bairro>Praia</bairro>
+        <cidade>Macaé</cidade>
+        <uf>RJ</uf>
+      </endereco>
+      <telefone>
+        <ddd>22</ddd>
+        <numero>999998888</numero>
+      </telefone>
+      <prazoDevolucao>5</prazoDevolucao>
+      <emprestimos>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+          <usuario class="br.femass.edu.prova_prog3_n1_julio.Model.Aluno" reference="../../.."/>
+          <livro>
+            <codigo>1</codigo>
+            <titulo>A Revolução dos Bichos</titulo>
+            <autor>
+              <nome>George</nome>
+              <sobrenome>Orwell</sobrenome>
+            </autor>
+            <genero>
+              <nome>Ficção</nome>
+            </genero>
+            <ano>1949</ano>
+            <edicao>8</edicao>
+            <copias>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>5</codigo>
+                <fixo>false</fixo>
+                <emprestada>true</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>1</codigo>
+                <fixo>true</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>6</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>9</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>2</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>8</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>10</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>7</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>4</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>3</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            </copias>
+          </livro>
+          <ativo>false</ativo>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+          <usuario class="br.femass.edu.prova_prog3_n1_julio.Model.Aluno" reference="../../.."/>
+          <livro>
+            <codigo>2</codigo>
+            <titulo>1984</titulo>
+            <autor>
+              <nome>George</nome>
+              <sobrenome>Orwell</sobrenome>
+            </autor>
+            <genero>
+              <nome>Ficção</nome>
+            </genero>
+            <ano>1950</ano>
+            <edicao>6</edicao>
+            <copias>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>11</codigo>
+                <fixo>true</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>15</codigo>
+                <fixo>false</fixo>
+                <emprestada>true</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>12</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>27</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>23</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>24</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>16</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>30</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>28</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>14</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>26</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>25</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>18</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>19</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>13</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>20</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>21</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>17</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>22</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+              <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+                <codigo>29</codigo>
+                <fixo>false</fixo>
+                <emprestada>false</emprestada>
+                <livro reference="../../.."/>
+              </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+            </copias>
+          </livro>
+          <ativo>false</ativo>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+      </emprestimos>
+      <curso>Sistemas_de_Informação</curso>
+    </usuario>
+    <livro>
+      <codigo>3</codigo>
+      <titulo>Admirável Mundo Novo</titulo>
+      <autor>
+        <nome>Aldous</nome>
+        <sobrenome>Huxley</sobrenome>
+      </autor>
+      <genero>
+        <nome>Ficção</nome>
+      </genero>
+      <ano>1931</ano>
+      <edicao>5</edicao>
+      <copias>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>41</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>40</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>39</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>38</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>42</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>31</codigo>
+          <fixo>true</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>36</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>37</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>35</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>32</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>34</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+        <br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+          <codigo>33</codigo>
+          <fixo>false</fixo>
+          <emprestada>false</emprestada>
+          <livro reference="../../.."/>
+        </br.femass.edu.prova__prog3__n1__julio.Model.Copia>
+      </copias>
+    </livro>
+    <ativo>false</ativo>
+  </br.femass.edu.prova__prog3__n1__julio.Model.Emprestimo>
+</set>
