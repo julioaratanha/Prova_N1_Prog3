@@ -40,12 +40,12 @@ public class AutorDao implements Dao<Autor> {
     @Override
     public void gravar(Autor autor) throws Exception {
         autores.add(autor);
-        persistir();
+        //persistir();
     }
 
     @Override
     public Set<Autor> listar() throws Exception {
-
+/*
         try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
@@ -53,13 +53,13 @@ public class AutorDao implements Dao<Autor> {
             autores = (Set<Autor>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
         return autores;
     }
 
     @Override
     public void excluir(Autor autor) throws Exception {
         autores.remove(autor);
-        persistir();
+        //persistir();
     }
 }

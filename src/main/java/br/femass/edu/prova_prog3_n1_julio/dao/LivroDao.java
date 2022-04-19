@@ -46,12 +46,12 @@ public class LivroDao implements Dao<Livro> {
     @Override
     public void gravar(Livro livro) throws Exception {
         livros.add(livro);
-        persistir();
+        //persistir();
     }
 
     @Override
     public Set<Livro> listar() throws Exception {
-        try{
+       /* try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
             xstream.allowTypes(new Class[] {br.femass.edu.prova_prog3_n1_julio.Model.Livro.class});
@@ -61,13 +61,13 @@ public class LivroDao implements Dao<Livro> {
             livros = (Set<Livro>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
         return livros;
     }
 
     @Override
     public void excluir(Livro livro) throws Exception {
         livros.remove(livro);
-        persistir();
+        //persistir();
     }
 }

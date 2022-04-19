@@ -35,12 +35,12 @@ public class HistoricoDeEmprestimosDao implements Dao<Emprestimo> {
     @Override
     public void gravar(Emprestimo emprestimo) throws Exception {
         historicoDeEmprestimos.add(emprestimo);
-        persistir();
+        //persistir();
     }
 
     @Override
     public Set<Emprestimo> listar() throws Exception {
-
+/*
         try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
@@ -53,13 +53,13 @@ public class HistoricoDeEmprestimosDao implements Dao<Emprestimo> {
             historicoDeEmprestimos = (Set<Emprestimo>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
         return historicoDeEmprestimos;
     }
 
     @Override
     public void excluir(Emprestimo emprestimo) throws Exception {
         historicoDeEmprestimos.remove(emprestimo);
-        persistir();
+        //persistir();
     }
 }

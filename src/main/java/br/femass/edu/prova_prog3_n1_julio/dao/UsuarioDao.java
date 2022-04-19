@@ -43,12 +43,12 @@ public class UsuarioDao implements Dao<Usuario> {
     @Override
     public void gravar(Usuario usuario) throws Exception {
         usuarios.add(usuario);
-        persistir();
+        //persistir();
     }
 
     @Override
     public Set<Usuario> listar() throws Exception {
-        try{
+      /*  try{
             File arquivo = new File(nomeArquivo);
             XStream xstream = new XStream();
             xstream.allowTypes(new Class[]{br.femass.edu.prova_prog3_n1_julio.Model.Endereco.class});
@@ -60,14 +60,14 @@ public class UsuarioDao implements Dao<Usuario> {
             usuarios = (Set<Usuario>) xstream.fromXML(arquivo);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
         return usuarios;
     }
 
     @Override
     public void excluir(Usuario usuario) throws Exception {
         usuarios.remove(usuario);
-        persistir();
+        //persistir();
     }
 
 }
